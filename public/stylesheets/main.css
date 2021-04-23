@@ -1,0 +1,222 @@
+/*
+   =============
+    General CSS
+   =============
+*/
+:root {
+    color-scheme: light dark;
+
+}
+html{
+    height: 100%;
+    background: var(--bg-color);
+}
+body{
+    --bg-color: whitesmoke;
+    --txt-color:#24252A;
+
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    color: white;
+    box-sizing: border-box;
+
+    animation: bg-animation 23s infinite ease-in-out alternate-reverse;
+    background-size: 200%;
+}
+body.dark-theme{
+    --bg-color: #24252A;
+    --txt-color:whitesmoke;
+}
+@media (prefers-color-scheme: dark) {
+    /* defaults to dark theme */
+    body {
+        --bg-color: #24252A;
+        --txt-color:whitesmoke;
+    }
+    /* Override dark mode with light mode styles if the user decides to swap */
+    body.light-theme {
+        --bg-color: whitesmoke;
+        --txt-color:#24252A;
+    }
+}
+/*
+   ================
+      Containers
+   ================
+*/
+
+.landing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: fit-content;
+    min-height: 90vh;
+    font-size: xx-large;
+
+    /*overflow: scroll;*/
+}
+.content{
+    width:100vw;
+    height: 40vh;
+    margin: 25px 50px;
+
+    background: whitesmoke;
+    box-shadow: #24252A30 0 0 15px;
+    border-radius: 20px;
+
+}
+.footer{
+    max-width: 100vw;
+    height: 30vh;
+    background: var(--bg-color);
+    color: var(--txt-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10%;
+}
+/*@media (prefers-color-scheme: dark) {*/
+/*    .footer{*/
+/*        background: #24252A;*/
+/*        color: whitesmoke;*/
+/*    }*/
+/*    html{*/
+/*        background: #24252A;*/
+/*    }*/
+/*}*/
+
+/*
+   ============
+      Navbar
+   ============
+*/
+
+.nav{
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+    background: var(--bg-color);
+    box-shadow: #00000030 0 0 10px;
+}
+.nav h1{
+    font-weight: bolder;
+    font-size: 30px;
+}
+.nav h1 a:link, .nav h1 a:visited{
+    text-decoration: none;
+    color: var(--txt-color);
+}
+.nav__links{
+    list-style: none;
+}
+.nav__links li{
+    display: inline-block;
+    padding: 22px 30px ;
+}
+.nav__links li a:link,.nav__links li a:visited {
+    text-decoration: none;
+    color: var(--txt-color);
+}
+.nav__menu{
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+.nav__menu:focus{
+    outline: none;
+}
+#drop{
+    position: relative;
+}
+.nav__menu__drop{
+    display: none;
+    position: absolute;
+    background: var(--bg-color);
+    list-style: none;
+    padding: 22px 0 0;
+    border-radius: 15px;
+    width: fit-content;
+    overflow: hidden;
+    top: 60px;
+}
+#drop:hover .nav__menu__drop{
+    display: block;
+}
+.nav__menu__drop li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 30px ;
+    color: var(--txt-color);
+}
+.nav__menu__drop li:hover{
+    background: #d4d4d4;
+}
+.btn-toggle{
+    border:none;
+    background: inherit;
+    outline: none;
+    cursor: pointer;
+}
+
+/*@media (prefers-color-scheme: dark) {*/
+/*    .nav{*/
+/*        background: #24252A;*/
+/*    }*/
+/*    .nav h1 a:link, .nav h1 a:visited{*/
+/*        color: white;*/
+/*    }*/
+/*    .nav__links li a:link,.nav__links li a:visited{*/
+/*        color: whitesmoke;*/
+/*    }*/
+/*    .nav__menu__drop li{*/
+/*        color: whitesmoke;*/
+/*    }*/
+/*    .nav__menu__drop {*/
+/*        background: #24252A;*/
+/*    }*/
+/*    .nav__menu__drop li:hover{*/
+/*        background: #616166;*/
+/*    }*/
+/*}*/
+
+/*
+   ================
+      Animations
+   ================
+*/
+
+@keyframes bg-animation {
+    10% {
+        background-position: left;
+    }
+    90% {
+        background-position: right;
+    }
+}
+
+/*
+   ================
+        Icons
+   ================
+*/
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
