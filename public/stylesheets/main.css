@@ -19,7 +19,7 @@ body{
     color: white;
     box-sizing: border-box;
 
-    animation: bg-animation 23s infinite ease-in-out alternate-reverse;
+    /*animation: bg-animation 23s infinite ease;*/
     background-size: 200%;
 }
 body.dark-theme{
@@ -56,8 +56,8 @@ html{
     align-items: center;
     width: 100vw;
     height: fit-content;
-    min-height: 100vh;
-    font-size: xx-large;
+    min-height: 86vh;
+    font-size: 3em;
 }
 .container{
     width:100vw;
@@ -172,6 +172,24 @@ html{
     background: inherit;
     outline: none;
     cursor: pointer;
+    display: none;
+}
+
+/*
+   ==========
+      Text
+   ==========
+*/
+
+.gr-txt{
+    background: linear-gradient(43deg, #4158d0, #c850c0, #ffcc70);
+    background-size: 200% 200%;
+
+    -webkit-animation: txt-animation 10s ease infinite;
+    -moz-animation: txt-animation 10s ease infinite;
+    animation: txt-animation 10s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /*
@@ -187,6 +205,21 @@ html{
     90% {
         background-position: right;
     }
+}
+@-webkit-keyframes txt-animation {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@-moz-keyframes txt-animation {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@keyframes txt-animation {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
 }
 
 /*
