@@ -19,7 +19,7 @@ body{
     color: white;
     box-sizing: border-box;
 
-    /*animation: bg-animation 23s infinite ease;*/
+    animation: bg-animation 20s ease infinite;
     background-size: 200%;
 }
 body.dark-theme{
@@ -199,12 +199,19 @@ html{
 */
 
 @keyframes bg-animation {
-    10% {
-        background-position: left;
-    }
-    90% {
-        background-position: right;
-    }
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@-webkit-keyframes bg-animation {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@-moz-keyframes bg-animation {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
 }
 @-webkit-keyframes txt-animation {
     0%{background-position:0% 52%}
