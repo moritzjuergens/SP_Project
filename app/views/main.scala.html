@@ -58,7 +58,6 @@
         <script>
             const check = document.getElementById("dark_check");
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-            const currentTheme = localStorage.getItem("theme");
 
             if (prefersDarkScheme.matches) {
                 document.getElementById("menu").classList.toggle("md-light");

@@ -18,3 +18,14 @@ function toggleLightTheme(){
     document.getElementById("menu").classList.toggle("md-dark");
     document.getElementById("dark_icon").classList.toggle("md-dark");
 }
+//TODO: Add a listening function to check if the OS Theme changes
+function listenThemeChange(){
+    window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', event => {
+            if (event.matches) {
+                //dark mode
+            } else {
+                //light mode
+            }
+        })
+}

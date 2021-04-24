@@ -66,10 +66,10 @@ html{
     margin: 25px 50px;
     padding: 25px 50px;
 
-    background: whitesmoke;
+    background: var(--bg-color);
     box-shadow: #24252A30 0 0 15px;
     border-radius: 20px;
-    color: #24252A;
+    color: var(--txt-color);
 
     overflow: hidden;
 }
@@ -112,6 +112,7 @@ html{
     padding: 0 2% 0 5%;
     background: var(--bg-color);
     box-shadow: #00000030 0 0 10px;
+    user-select: none;
 }
 .nav h1{
     font-weight: bolder;
@@ -173,6 +174,9 @@ html{
     outline: none;
     cursor: pointer;
     display: none;
+}
+#dark_icon{
+    cursor: pointer;
 }
 
 /*
