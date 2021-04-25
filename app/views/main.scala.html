@@ -59,6 +59,8 @@
             const check = document.getElementById("dark_check");
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
+            listenThemeChange()
+
             if (prefersDarkScheme.matches) {
                 document.getElementById("menu").classList.toggle("md-light");
                 document.getElementById("dark_icon").classList.toggle("md-light");

@@ -23,9 +23,11 @@ function listenThemeChange(){
     window.matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', event => {
             if (event.matches) {
-                //dark mode
+                document.getElementById("menu").classList.toggle("md-light");
+                document.getElementById("dark_icon").classList.toggle("md-light");
             } else {
-                //light mode
+                document.getElementById("menu").classList.toggle("md-dark");
+                document.getElementById("dark_icon").classList.toggle("md-dark");
             }
         })
 }

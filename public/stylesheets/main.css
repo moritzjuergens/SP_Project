@@ -9,6 +9,7 @@
 body{
     --bg-color: whitesmoke;
     --txt-color:#24252A;
+    --txt-color2: #6f6f6f;
 
     font-family: 'Roboto', sans-serif;
     width: 100vw;
@@ -25,6 +26,7 @@ body{
 body.dark-theme{
     --bg-color: #24252A;
     --txt-color:whitesmoke;
+    --txt-color2: #cecece;
 }
 html{
     background: whitesmoke;
@@ -32,11 +34,13 @@ html{
 @media (prefers-color-scheme: dark) {
     body {
         --bg-color: #24252A;
-        --txt-color:whitesmoke;
+        --txt-color: whitesmoke;
+        --txt-color2: whitesmoke;
     }
     body.light-theme {
         --bg-color: whitesmoke;
         --txt-color:#24252A;
+        --txt-color2: #6f6f6f;
     }
     html{
         background: #24252A;
@@ -73,9 +77,14 @@ html{
 
     overflow: hidden;
 }
+.container > h3{
+    margin: 3% auto;
+}
 .container__text{
     max-width: 60ch;
     font-size: 18px;
+    color: var(--txt-color2);
+    line-height: 1.7;
 }
 .container__grid{
     display: grid;
