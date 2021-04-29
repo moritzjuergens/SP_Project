@@ -1,11 +1,9 @@
 package controllers
 
-import javax.inject._
-import play.api._
 import play.api.mvc._
-import play.twirl.api.Html
+import play.api.db._
+import javax.inject.{Inject, _}
 
-import java.awt.Container
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -24,12 +22,15 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
   def index() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())
   }
+
   def hello(name: String) = Action {
     Ok(views.html.hello(name))
   }
+
   def topics() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.topics())
   }
+
   def about() = Action {
     Ok(views.html.about())
   }

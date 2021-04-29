@@ -2,20 +2,54 @@
 
 @main("Topics"){
   <div class="landing">
-    <h2 style="margin-bottom: 30px">Spezielle Programmierung</h2>
     <div class="container">
-        <div class="container__text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda commodi consequatur corporis eligendi et ex hic in iste, laborum nostrum odit possimus provident quam quisquam sapiente tenetur, vel vero.
+      <div class="content">
+        <div class="content__title-bar">
+          <h4 class="content__title">Logistik</h4>
+          <button id="add-item" class="content__title-bar__button">
+            <span class="material-icons content__title-bar__icon" >
+              add
+            </span>
+          </button>
         </div>
-    </div>
-    <div class="container">
+        <div class="content__grid">
+          <div class="card">
+            <h2 class="card__title">Bestellpunktverfahren</h2>
+            <p class="card__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam explicabo iure magni nemo officiis perferendis similique ullam unde ut voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nostrum!</p>
+            <a href="#" class="card__link">Learn more!</a>
+          </div>
+          <div class="card">
 
-    </div>
-    <div class="container">
+          </div>
+          <div class="card">
 
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container">
-
+  </div>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="content">
+        <div class="content__title-bar">
+          <h4 class="content__title">
+            Add new item
+          </h4>
+        </div>
+        <div class="form">
+          <form action="">
+            <label for="question" class="form__label">
+              Question:
+            </label>
+            <input id="question" class="form__input" type="text">
+            <label for="answer" class="form__label">
+              Answer:
+            </label>
+            <input id="answer" class="form__input" type="text">
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 }
+

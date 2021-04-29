@@ -14,7 +14,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
-        <!--<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/d-logo2.png")">-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="color-scheme" content="dark light">
     </head>
@@ -43,12 +42,9 @@
                     </label>
                 </li>
             </ul>
-
         </header>
 
-        <div class="content">
         @content
-        </div>
 
         <div class="footer">
             <h1>Footer</h1>
@@ -58,35 +54,41 @@
         <script>
             const check = document.getElementById("dark_check");
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            const currentTheme = localStorage.getItem("theme")
 
-            listenThemeChange()
-
-            if (prefersDarkScheme.matches) {
-                document.getElementById("menu").classList.toggle("md-light");
-                document.getElementById("dark_icon").classList.toggle("md-light");
-            }else {
-                document.getElementById("menu").classList.toggle("md-dark");
-                document.getElementById("dark_icon").classList.toggle("md-dark");
-            }
             function switchTheme() {
                 if (check.checked) {
                     if (prefersDarkScheme.matches) {
-                        toggleLightTheme()
+                        //toggle light theme when OS is in dark mode
+                        // Theme switch #1
+                        document.body.classList.toggle("light-theme");
                         document.documentElement.style.setProperty('background', 'whitesmoke');
+                        localStorage.setItem("theme","light")
                     }else{
-                        toggleDarkTheme()
+                        //toggle dark theme when os isnt in dark mode
+                        // Theme switch #2
+                        document.body.classList.toggle("dark-theme");
                         document.documentElement.style.setProperty('background', '#24252A');
+                        localStorage.setItem("theme","dark")
                     }
                 } else {
                     if (prefersDarkScheme.matches) {
-                        toggleLightTheme()
+                        //toggle light theme when os is in dark mode and the button is unchecked
+                        //Theme switch back #1
+                        document.body.classList.toggle("light-theme");
                         document.documentElement.style.setProperty('background', '#24252A');
+                        localStorage.setItem("theme","dark")
                     }else{
-                        toggleDarkTheme()
+                        //toggle dark theme when os isnt in dark mode and the button is unchecked
+                        //Theme switch back #2
+                        document.body.classList.toggle("dark-theme");
                         document.documentElement.style.setProperty('background', 'whitesmoke');
+                        localStorage.setItem("theme","light")
                     }
                 }
             }
+
+
         </script>
     </body>
 </html>
