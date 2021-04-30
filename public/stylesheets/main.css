@@ -6,8 +6,8 @@
 body{
     --bg-color: whitesmoke;
     --bg-color2: white;
-    --txt-color:#24252A;
     --txt-color2: #6f6f6f;
+    --txt-color: #222328;
 
     font-family: 'Roboto', sans-serif;
     width: 100vw;
@@ -76,6 +76,7 @@ html{
     max-width: 100vw;
     height: 15vh;
     background: var(--bg-color);
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 
     display: flex;
@@ -93,6 +94,7 @@ html{
     background: var(--bg-color);
     box-shadow: #24252A30 0 0 15px;
     border-radius: 20px;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 
     overflow: hidden;
@@ -124,10 +126,12 @@ html{
 .content__title{
     margin:0;
     font-size: 30px;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 .content__title-bar__icon{
     cursor: pointer;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 .content__title-bar__button{
@@ -164,6 +168,7 @@ html{
 }
 .nav h1 a:link, .nav h1 a:visited{
     text-decoration: none;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 .nav__links{
@@ -175,6 +180,7 @@ html{
 }
 .nav__links li a:link,.nav__links li a:visited {
     text-decoration: none;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 .nav__menu{
@@ -207,6 +213,7 @@ html{
     align-items: center;
     justify-content: center;
     padding: 22px 30px ;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 .nav__menu__drop li:hover{
@@ -221,9 +228,11 @@ html{
 }
 #dark_icon{
     cursor: pointer;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 #menu{
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 
@@ -319,6 +328,7 @@ html{
 .form__label{
     margin: 10px 0;
     display: block;
+    /*noinspection CssUnresolvedCustomProperty*/
     color: var(--txt-color);
 }
 
