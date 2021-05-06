@@ -11,11 +11,12 @@ herokuAppName in Compile := "afternoon-temple-82615"
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
-//libraryDependencies ++= Seq(
-//  jdbc,
-//  "org.postgresql" % "postgresql" % "9.4-1201-jdbc41"
-//)
 
+libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1200-jdbc41"
+libraryDependencies ++= Seq(
+  jdbc,
+  "org.playframework.anorm" %% "anorm" % "2.6.10"
+)
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
