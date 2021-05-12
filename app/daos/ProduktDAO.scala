@@ -17,10 +17,10 @@ package daos
 
     def insert(produkt: Produkt): Future[Unit] = db.run(Produkte += produkt).map { _ => () }
 
-    private class ProduktTable(tag: Tag) extends Table[Produkt](tag, "PRODUKT") {
+    private class ProduktTable(tag: Tag) extends Table[Produkt](tag, "produkt") {
 
-      def name = column[String]("NAME", O.PrimaryKey)
-      def color = column[Int]("PRICE")
+      def name = column[String]("name", O.PrimaryKey)
+      def color = column[Int]("price")
 
       def * = (name, color) <> (Produkt.tupled, Produkt.unapply)
     }
