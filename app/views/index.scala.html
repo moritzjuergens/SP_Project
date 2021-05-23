@@ -1,27 +1,104 @@
+@import model.Card
 @import model.Produkt
-@(produkte: Seq[Produkt])
-
+@(cards: Seq[Card])
+@*produkte: Seq[Produkt]*@
 
 @main("Welcome to Play"){
-    <div class="title-page">
+    <div class="content">
         <div class="landing">
-            <h1>Welcome to Play!</h1>
+            <div class="landing__grid">
+                <div class="landing__grid__item">
+                    <div class="landing__text">
+                        <h1 class="landing__header">Welcome to Play!</h1>
+                        <h4 class="landing__sub">The interactive learn app!</h4>
+                    </div>
+                    <button class="action-button" style="margin-top: 70px; align-self: flex-start">Test your knowledge</button>
+                </div>
+                <div class="landing__grid__item" >
+                    <img class="landing__img" src="/assets/images/online_test.svg" alt="Online Test">
+                </div>
+            </div>
+            <span class="material-icons landing__icon" style="font-size: 50px">
+                expand_more
+            </span>
         </div>
 
-        <div class="container">
-            <form action="/insert/produkt" method="POST">
-                <input name="name" type="text" placeholder="name"/>
-                <input name="price" type="number" placeholder="price"/>
-                <input type="submit"/>
-            </form>
 
-            <h2>Bisher erstellte Produkte:</h2>
-            <table>
-                <tr><th>Name</th><th>Preis</th></tr>
-                @for(prod <- produkte){
-                    <tr><td>@prod.name</td><td>@prod.price</td></tr>
-                }
-            </table>
+        <div class="container--right">
+            <div class="container__content">
+                <h1 class="container__header">Have a look at our courses</h1>
+
+                <div class="carousel">
+                    <div class="carousel__item">
+
+                    </div>
+                    <div class="carousel__item">
+
+                    </div>
+                    <div class="carousel__item">
+
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="container--left overlap">
+            <div class="container__content">
+                <h1 class="container__header">Try Out Our Editor</h1>
+                <form action="/insert/card" class="form">
+                    <div class="form__container">
+
+                        <div class="form__container__item">
+                            <label class="form__label" for="course">Course</label>
+                            <input id="course" type="text" name="course" class="form__input">
+                        </div>
+
+                        <div class="form__container__item">
+                            <label class="form__label" for="id">ID</label>
+                            <input id="id" type="number" name="id" class="form__input">
+                        </div>
+
+                        <div class="form__container__item">
+                            <label class="form__label" for="difficulty">Difficulty</label>
+                            <select id="difficulty" name="difficulty" class="form__input">
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form__container__item" style="grid-column: 1/3">
+                            <label class="form__label" for="question">Question</label>
+                            <input id="question" type="text" name="question" class="form__input">
+                        </div>
+
+                    </div>
+                    <label class="form__label" for="answer" style="align-self:flex-start">Answer</label>
+                    <textarea id="answer" name="answer" class="form__text-area" cols="40" wrap="hard"></textarea>
+
+                    <button class="form__submit" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+@*        <div class="container--right overlap">*@
+@*            <div class="container__content">*@
+@*                <h1 class="container__header">Add a product</h1>*@
+@*                <div>*@
+@*                    <form action="/insert/produkt" method="POST">*@
+@*                        <input name="name" type="text" placeholder="name"/>*@
+@*                        <input name="price" type="number" placeholder="price"/>*@
+@*                        <input type="submit"/>*@
+@*                    </form>*@
+
+@*                    <h2>Bisher erstellte Produkte:</h2>*@
+@*                    <table>*@
+@*                        <tr><th>Name</th><th>Preis</th></tr>*@
+@*                        @for(prod <- produkte){*@
+@*                            <tr><td>@prod.name</td><td>@prod.price</td></tr>*@
+@*                        }*@
+@*                    </table>*@
+@*                </div>*@
+@*            </div>*@
+@*        </div>*@
     </div>
 }

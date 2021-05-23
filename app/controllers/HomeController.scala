@@ -4,7 +4,9 @@ import play.api.mvc._
 //import play.api.db._
 import javax.inject.{Inject, _}
 import daos.ProduktDAO
+import daos.CardDAO
 import model.Produkt
+import model.Card
 import play.api._
 import play.api.data.Form
 import play.api.data.Forms.{mapping, number, text}
@@ -15,7 +17,7 @@ import scala.concurrent.ExecutionContext
  * application's home page.
  */
 @Singleton
-class HomeController @Inject()(produktDao: ProduktDAO, controllerComponents: ControllerComponents)
+class HomeController @Inject()(produktDao: ProduktDAO,cardDAO: CardDAO, controllerComponents: ControllerComponents)
                               (implicit executionContext: ExecutionContext) extends AbstractController(controllerComponents) {
 
   /**
@@ -26,7 +28,8 @@ class HomeController @Inject()(produktDao: ProduktDAO, controllerComponents: Con
    * a path of `/`.
    */
   def index() = Action.async {
-    produktDao.all().map { case (produkte) => Ok(views.html.index(produkte)) }
+    cardDAO.all().map { case (cards) => Ok(views.html.index(cards)) }
+//    produktDao.all().map {case (produkte => Ok(views.html.index(produkte))}
   }
 
   def hello(name: String) = Action {
@@ -54,5 +57,17 @@ class HomeController @Inject()(produktDao: ProduktDAO, controllerComponents: Con
   def insertProdukt = Action.async { implicit request =>
     val produkt: Produkt = produktForm.bindFromRequest.get
     produktDao.insert(produkt).map(_ => Redirect(routes.HomeController.index))
+  }
+  val cardForm = Form(
+    mapping(
+      "id" -> number(),
+      "course" -> text(),
+      "question" -> text(),
+      "answer" -> text(),
+      "difficulty" -> text())(Card.apply)(Card.unapply))
+
+  def insertCard = Action.async { implicit request =>
+    val card: Card = cardForm.bindFromRequest.get
+    cardDAO.insert(card).map(_ => Redirect(routes.HomeController.index))
   }
 }
