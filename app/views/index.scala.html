@@ -29,22 +29,18 @@
                 <h1 class="container__header">Have a look at our courses</h1>
 
                 <div class="carousel">
-                    <div class="carousel__item">
-
-                    </div>
-                    <div class="carousel__item">
-
-                    </div>
-                    <div class="carousel__item">
-
-                    </div>
+                    @for(card <- cards){
+                        <div class="carousel__item">
+                            @card.course
+                        </div>
+                    }
                 </div>
             </div>
         </div>
         <div class="container--left overlap">
             <div class="container__content">
                 <h1 class="container__header">Try Out Our Editor</h1>
-                <form action="/insert/card" class="form">
+                <form action="/insert/card" method="POST" class="form">
                     <div class="form__container">
 
                         <div class="form__container__item">
@@ -76,7 +72,7 @@
                     <label class="form__label" for="answer" style="align-self:flex-start">Answer</label>
                     <textarea id="answer" name="answer" class="form__text-area" cols="40" wrap="hard"></textarea>
 
-                    <button class="form__submit" type="submit">Submit</button>
+                    <input class="form__submit" type="submit">
                 </form>
             </div>
         </div>
