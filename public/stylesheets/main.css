@@ -142,6 +142,21 @@ body{
 }
 
 /*Container*/
+.container{
+    height: fit-content;
+    min-height: 600px;
+    width:  95vw;
+
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    background-color: var(--color-white-1);
+    color: var(--color-black-1);
+    box-shadow: -7px 7px 7px #00000020;
+
+    border-radius: 15px;
+}
 .container--right{
     height: fit-content;
     min-height: 600px;
@@ -216,6 +231,12 @@ body{
     background: var(--color-black-3);
     color: var(--color-gray-5);
 }
+
+.quiz__header{
+    width: 60ch;
+    font-size: var(--txt-header-5);
+    align-self: flex-start;
+}
 /*
    ============
       Navbar
@@ -244,9 +265,9 @@ body{
 }
 
 /*
-   ============
-      Navbar
-   ============
+   ==============
+      Carousel
+   ==============
 */
 
 .carousel{

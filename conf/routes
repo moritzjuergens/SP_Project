@@ -10,8 +10,8 @@ POST    /insert/produkt             controllers.HomeController.insertProdukt
 POST    /insert/card                controllers.HomeController.insertCard
 
 GET     /hello                      controllers.HomeController.hello(name: String)
-GET     /topics                     controllers.HomeController.topics()
-GET     /about                      controllers.HomeController.about()
+GET     /courses                    controllers.HomeController.courses()
+GET     /quiz                      controllers.HomeController.quiz()
 
 GET     /env                        controllers.HomeController.env()
 # Map static resources from the /public folder to the /assets URL path

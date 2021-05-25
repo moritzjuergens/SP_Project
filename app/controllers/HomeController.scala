@@ -36,12 +36,12 @@ class HomeController @Inject()(produktDao: ProduktDAO,cardDAO: CardDAO, controll
     Ok(views.html.hello(name))
   }
 
-  def topics() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.topics())
+  def courses() = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.courses())
   }
 
-  def about() = Action {
-    Ok(views.html.about())
+  def quiz() = Action {
+    Ok(views.html.quiz())
   }
 
   def env() = Action { implicit request: Request[AnyContent] =>
