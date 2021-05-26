@@ -1,5 +1,6 @@
 package controllers
 
+import play.api.data.Forms.optional
 import play.api.mvc._
 
 import java.time.Duration
@@ -68,7 +69,7 @@ class HomeController @Inject()(produktDao: ProduktDAO,cardDAO: CardDAO, controll
   }
   val cardForm = Form(
     mapping(
-      "id" -> number(),
+      "id" -> optional(number),
       "course" -> text(),
       "question" -> text(),
       "answer" -> text(),

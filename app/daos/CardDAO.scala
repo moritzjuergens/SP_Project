@@ -22,13 +22,13 @@ class CardDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
 
   private class CardTable(tag: Tag) extends Table[Card](tag, "card") {
 
-    def id = column[Int]("id")
+    def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def course = column[String]("course")
     def question = column[String]("question")
     def answer = column[String]("answer")
     def difficulty = column[String]("difficulty")
 
-    def * = (id, course, question, answer, difficulty) <> (Card.tupled, Card.unapply)
+    def * = (id.?,course, question, answer, difficulty) <> (Card.tupled, Card.unapply)
   }
 
 }
