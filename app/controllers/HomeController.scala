@@ -1,6 +1,10 @@
 package controllers
 
 import play.api.mvc._
+
+import java.time.Duration
+import scala.concurrent.Await
+import scala.concurrent.duration.{Duration, MILLISECONDS}
 //import play.api.db._
 import javax.inject.{Inject, _}
 import daos.ProduktDAO
@@ -28,7 +32,11 @@ class HomeController @Inject()(produktDao: ProduktDAO,cardDAO: CardDAO, controll
    * a path of `/`.
    */
   def index() = Action.async {
-    cardDAO.all().map { case (cards) => Ok(views.html.index(cards)) }
+
+    cardDAO.all().map {
+      case (cards) =>  Ok(views.html.index(cards))
+    }
+
 //    produktDao.all().map {case (produkte => Ok(views.html.index(produkte))}
   }
 
@@ -40,13 +48,13 @@ class HomeController @Inject()(produktDao: ProduktDAO,cardDAO: CardDAO, controll
     Ok(views.html.courses())
   }
 
-  def quiz() = Action {
-    Ok(views.html.quiz())
+  def quiz() = Action.async{
+    cardDAO.all().map { case (cards) => Ok(views.html.quiz(cards)) }
   }
 
   def env() = Action { implicit request: Request[AnyContent] =>
-//    Ok("Nothing to see here")
-    Ok(System.getenv("JDBC_DATABASE_URL"))
+    Ok("Nothing to see here")
+    //Ok(System.getenv("JDBC_DATABASE_URL"))
   }
 
   val produktForm = Form(

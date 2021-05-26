@@ -1,21 +1,29 @@
-@()
+@import model.Card
+@(cards: Seq[Card])
 
 @main("About"){
     <div class="content">
-        <div class="container" style="width: 80vw">
-            <div class="container__content">
-                <form action="" class="form">
-                    <div>
-                        <p>Course Lorem</p>
-                        <p>Question x/10</p>
+        @for(card <- cards){
+            <div class="container tab" style="width: 80vw">
+                <div class="container__content">
+                    <div class="form">
+                        <div class="form__text">
+                            <p>@card.course</p>
+                            <p>Question x/10</p>
+                            <p>@card.difficulty.toUpperCase</p>
+                        </div>
+                        <h4 class="quiz__header">@card.question</h4>
+                        <label for="text-@card.id" class="form__label" style="align-self: flex-start; margin-left: 0;">Your answer:</label>
+                        <textarea name="text-@card.id" id="text-@card.id" cols="30" rows="10" class="form__text-area"></textarea>
+                        <span class="quiz__answer" id="@card.id">@card.answer</span>
+                        <div class="form__button-group">
+                            <button onclick="showAnswer(@card.id)">Show answer</button>
+                            <button onclick="checkAnswer(@card.id)">Check answer</button>
+                            <button onclick="nextPrev(1)">Next Question</button>
+                        </div>
                     </div>
-                    <h4 class="quiz__header">Which number did Michael Jordan wear?</h4>
-                    <label for="quiz__answer" style="display: none"></label>
-                    <textarea name="quiz__answer" id="quiz__answer" cols="30" rows="10" class="form__text-area">
-
-                    </textarea>
-                </form>
+                </div>
             </div>
-        </div>
+        }
     </div>
 }
