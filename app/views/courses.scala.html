@@ -1,73 +1,17 @@
-@()
+@import model.Card
+@(courses: Seq[Card])
 
 @main("Topics"){
-  <div class="landing">
+  <div class="content">
     <div class="container">
-      <div class="content">
-        <div class="content__title-bar">
-          <h4 class="content__title">Logistik</h4>
-          <button id="add-item" class="content__title-bar__button">
-            <span class="material-icons content__title-bar__icon" >
-              add
-            </span>
-          </button>
-        </div>
-        <div class="content__grid">
-          <div class="card">
-            <h2 class="card__title">Bestellpunktverfahren</h2>
-            <p class="card__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam explicabo iure magni nemo officiis perferendis similique ullam unde ut voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nostrum!</p>
-            <a href="#" class="card__link">Learn more!</a>
-          </div>
-          <div class="card">
-
-          </div>
-          <div class="card">
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <div class="content">
-        <div class="content__title-bar">
-          <h4 class="content__title">
-            Add new item
-          </h4>
-        </div>
-        <div class="form">
-          <form action="">
-            <div class="form__container">
-              <div class="form__container__item">
-                <label for="topic" class="form__label">
-                  Topic:
-                </label>
-                <input id="topic" class="form__input" type="text">
-                <label for="question" class="form__label">
-                  Question:
-                </label>
-                <input id="question" class="form__input" type="text">
-              </div>
-              <div class="form__container__item">
-                <label for="difficulty" class="form__label">
-                  Difficulty:
-                </label>
-                <input id="difficulty" class="form__input" type="text">
-                <label for="settings" class="form__label">
-                  Settings:
-                </label>
-                <div id="settings">
-                  <input id="multi-choice" class="form__input" type="checkbox"> <label for="multi-choice" class="form__check-label" >Multiple Choice</label>
-                </div>
-              </div>
+      <div class="container__content">
+        <h1 class="container__header">Our Courses</h1>
+        <div class="container__grid">
+          @for(course <- courses){
+            <div class="container__grid__item">
+              @course.course
             </div>
-
-            <label for="answer" class="form__label">
-              Answer:
-            </label>
-            <textarea id="answer" class="form__text-area"></textarea>
-          </form>
+          }
         </div>
       </div>
     </div>

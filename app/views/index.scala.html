@@ -12,7 +12,7 @@
                         <h1 class="landing__header">Welcome to Play!</h1>
                         <h4 class="landing__sub">The interactive learn app!</h4>
                     </div>
-                    <button class="action-button" style="margin-top: 70px; align-self: flex-start">Test your knowledge</button>
+                    <a class="action-button" href="/quiz" style="margin-top: 70px; align-self: flex-start; text-decoration: none;">Test your knowledge</a>
                 </div>
                 <div class="landing__grid__item" >
                     <img class="landing__img" src="/assets/images/online_test.svg" alt="Online Test">
@@ -27,13 +27,33 @@
         <div class="container--right">
             <div class="container__content">
                 <h1 class="container__header">Have a look at our courses</h1>
-
-                <div class="carousel">
-                    @for(card <- cards){
-                        <div class="carousel__item">
+                <div class="slider">
+                    <div class="carousel">
+                        @for(card <- cards.distinctBy(_.course)){
+                            <div class="carousel__item" id="@card.id">
                             @card.course
+                            </div>
+                        }
+                        <div class="carousel__item">
+                            test
                         </div>
-                    }
+                        <div class="carousel__item">
+                            test
+                        </div>
+                        <div class="carousel__item">
+                            test
+                        </div>
+                    </div>
+                    <button class="carousel__nav-button carousel__nav-button--left" onclick="">
+                        <span class="material-icons carousel__icon">
+                            navigate_before
+                        </span>
+                    </button>
+                    <button class="carousel__nav-button carousel__nav-button--right" onclick="">
+                        <span class="material-icons carousel__icon">
+                            navigate_next
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>

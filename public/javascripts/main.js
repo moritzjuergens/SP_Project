@@ -2,20 +2,24 @@ function showAnswer(id) {
     var answer = document.getElementById(id);
     answer.style.display = "block";
 }
+function checkAnswer(n){
+    let realAnswers = document.getElementsByClassName("quiz__answer-reveal");
+    let answers = document.getElementsByClassName("quiz__answer");
 
-function nextQuestion(){
-    return false;
-}
+    let realAnswer = realAnswers[n].innerHTML;
+    let answer = answers[n].value;
 
-function checkAnswer(id){
-    var realAnswer = document.getElementById(id).innerHTML;
-    var answer = document.getElementById("text-"+id).value;
+    console.log(realAnswer);
+
     if(realAnswer===answer){
-        alert("Correct");
+        answers[n].style.color = "#285F17";
+        answers[n].style.background = "#CEEDD0";
     }else{
-        alert("False");
+        answers[n].style.color = "#9C312D";
+        answers[n].style.background = "#F6C9CE";
     }
 }
+
 let currentTab = 0;
 let tabs = document.getElementsByClassName("tab");
 showTab(currentTab)
@@ -41,6 +45,7 @@ function nextPrev(n) {
     // Otherwise, display the correct tab:
     showTab(currentTab);
 }
-
-
+function answer(){
+    checkAnswer(currentTab);
+}
 

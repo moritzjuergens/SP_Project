@@ -45,8 +45,10 @@ class HomeController @Inject()(produktDao: ProduktDAO,cardDAO: CardDAO, controll
     Ok(views.html.hello(name))
   }
 
-  def courses() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.courses())
+  def courses() = Action.async {
+    cardDAO.courses().map{
+      case (courses) =>  Ok(views.html.courses(courses.distinctBy(_.course)))
+    }
   }
 
   def quiz() = Action.async{
