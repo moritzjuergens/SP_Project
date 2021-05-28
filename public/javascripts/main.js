@@ -27,6 +27,12 @@ function showTab(n) {
     // This function will display the specified tab of the form ...
     tabs[n].style.display = "block";
     // this.fixStepIndicator(n);
+    if (n === this.tabs.length - 1) {
+        document.getElementById("nextBtn").innerHTML = "Home";
+    } else {
+        document.getElementById("nextBtn").innerHTML = "Next Question";
+    }
+
 }
 function nextPrev(n) {
     // This function will figure out which tab to display
@@ -39,7 +45,7 @@ function nextPrev(n) {
     // if you have reached the end of the form... :
     if (currentTab >= tabs.length) {
         //...the form gets submitted:
-        document.getElementById("nextBtn").type = "submit";
+        // document.getElementById("nextBtn").outerHTML = <a href="/"></a>
         return false;
     }
     // Otherwise, display the correct tab:

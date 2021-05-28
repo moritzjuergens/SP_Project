@@ -51,8 +51,8 @@ class HomeController @Inject()(produktDao: ProduktDAO,cardDAO: CardDAO, controll
     }
   }
 
-  def quiz() = Action.async{
-    cardDAO.all().map { case (cards) => Ok(views.html.quiz(cards)) }
+  def quiz(course: String) = Action.async{
+    cardDAO.questions(course).map { case (cards) => Ok(views.html.quiz(cards)(course)) }
   }
 
   def env() = Action { implicit request: Request[AnyContent] =>

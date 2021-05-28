@@ -11,7 +11,8 @@ POST    /insert/card                controllers.HomeController.insertCard
 
 GET     /hello                      controllers.HomeController.hello(name: String)
 GET     /courses                    controllers.HomeController.courses()
-GET     /quiz                      controllers.HomeController.quiz()
+#GET     /quiz                       controllers.HomeController.quiz()
+GET     /quiz                       controllers.HomeController.quiz(course: String)
 
 GET     /env                        controllers.HomeController.env()
 # Map static resources from the /public folder to the /assets URL path

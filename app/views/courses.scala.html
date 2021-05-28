@@ -8,9 +8,11 @@
         <h1 class="container__header">Our Courses</h1>
         <div class="container__grid">
           @for(course <- courses){
-            <div class="container__grid__item">
-              @course.course
-            </div>
+            <a class="course__link" href="/quiz?course=@course.course">
+              <div class="container__grid__item">
+                @course.course
+              </div>
+            </a>
           }
         </div>
       </div>

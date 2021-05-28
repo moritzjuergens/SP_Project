@@ -31,7 +31,7 @@
                     <div class="carousel">
                         @for(card <- cards.distinctBy(_.course)){
                             <div class="carousel__item" id="@card.id">
-                            @card.course
+                            <a class="course__link" href="/quiz?course=@card.course">@card.course</a>
                             </div>
                         }
                         <div class="carousel__item">
@@ -55,17 +55,27 @@
                         </span>
                     </button>
                 </div>
+
             </div>
         </div>
+
         <div class="container--left overlap">
             <div class="container__content">
+                <div id="editor"></div>
                 <h1 class="container__header">Try Out Our Editor</h1>
                 <form action="/insert/card" method="POST" class="form">
                     <div class="form__container">
 
                         <div class="form__container__item">
                             <label class="form__label" for="course">Course</label>
-                            <input id="course" type="text" name="course" class="form__input">
+                            <input list="course" class="form__input">
+                            <datalist id="course" >
+                                @for(course <- cards.distinctBy(_.course)){
+                                    <option value="@course.course">
+                                        @course.course
+                                    </option>
+                                }
+                            </datalist>
                         </div>
 
                         <div class="form__container__item">

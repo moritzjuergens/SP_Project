@@ -1,7 +1,7 @@
 @import model.Card
-@(cards: Seq[Card])
+@(cards: Seq[Card])(course: String)
 
-@main("About"){
+@main(course){
     <div class="content">
         @for(card <- cards){
             <div class="container tab" style="width: 80vw">
@@ -10,7 +10,7 @@
                         <div class="form__text">
                             <p>@card.course</p>
                             <p>Question @card.id/@cards.length</p>
-                            <p>@card.difficulty.toUpperCase</p>
+                            <p @card.difficulty.toUpperCase >@card.difficulty.toUpperCase</p>
                         </div>
                         <h4 class="quiz__header">@card.question</h4>
                         <label for="text-@card.id" class="form__label" style="align-self: flex-start; margin-left: 0;">Your answer:</label>
@@ -19,7 +19,7 @@
                         <div class="form__button-group">
                             <button onclick="showAnswer(@card.id)" style="background: var(--color-error)">Show answer</button>
                             <button onclick="answer()" style="background: var(--color-info)">Check answer</button>
-                            <button onclick="nextPrev(1)" style="background: var(--color-success)">Next Question</button>
+                            <button id="nextBtn" onclick="nextPrev(1)" style="background: var(--color-success)">Next Question</button>
                         </div>
                     </div>
                 </div>

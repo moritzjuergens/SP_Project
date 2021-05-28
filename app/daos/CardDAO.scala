@@ -18,6 +18,8 @@ class CardDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
   def all(): Future[Seq[Card]] = db.run(Cards.result)
   def courses(): Future[Seq[Card]] = db.run(Cards.distinctOn(_.course).result)
 
+  def questions(course: String): Future[Seq[Card]] = db.run(Cards.filter(_.course === course).result)
+
   def insert(card: Card): Future[Unit] = db.run(Cards += card).map { _ => () }
 
   private class CardTable(tag: Tag) extends Table[Card](tag, "card") {
