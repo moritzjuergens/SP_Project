@@ -68,14 +68,14 @@
 
                         <div class="form__container__item">
                             <label class="form__label" for="course">Course</label>
-                            <input list="course" class="form__input">
-                            <datalist id="course" >
-                                @for(course <- cards.distinctBy(_.course)){
+                            <input id="course" list="course-list" name="course" class="form__input">
+                            <datalist id="course-list" >
+                               @for(course <- cards.distinctBy(_.course)){
                                     <option value="@course.course">
-                                        @course.course
+                                       @course.course
                                     </option>
                                 }
-                            </datalist>
+                           </datalist>
                         </div>
 
                         <div class="form__container__item">
